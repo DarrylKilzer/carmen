@@ -27,7 +27,6 @@ function GameService() {
             } else {
                 carmen.city = getRandomCity();
                 console.log(`Oh no, it would appear that Carmen Sansiego TM, The thieving villian is on the loose its your job to track her down and bring her to justice Gumshoe. You have a budget of $${gumShoe.budget} to find her.`)
-                console.log(carmen.city)
             }
         }, 1000)
     }
@@ -47,7 +46,7 @@ function GameService() {
     }
 
     function getClue() {
-        return `Bar Keep: "A women wearing a red hat and black boots is more likely found in ${getRandomCity()}" `
+        return `Bar Keep: "A women wearing a red hat and black boots is more likely found in ${getRandomCity()}." `
     }
 
     function getTravelCost(city) {
@@ -70,13 +69,13 @@ function GameService() {
 
     this.flyToCity = function (city, cb) {
         var cost = getTravelCost(city)
-        console.log(cost)
         if (gumShoe.budget - cost > 0) {
             gumShoe.budget -= cost
             gumShoe.city = city
-            console.log(`Flight departing for ${city} from ${gumShoe.city} leaving now`)
+            console.log(`Ticket purchased for $${cost}.`)
+            console.log(`Flight departing for ${city} from ${gumShoe.city} leaving now.`)
             setTimeout(function () {
-                console.log(`You have arrived at ${city} thank you for flying skyblue`);
+                console.log(`You have arrived at ${city} thank you for flying skyblue.`);
                 cb();
             }, 1500)
         } else {
@@ -90,11 +89,10 @@ function GameService() {
             console.error('Error: you don\'t have the budget necessary to search here.')
             return callback(false);
         }
-        console.log('Scouring the city to find Carmen')
+        console.log('Scouring the city to find Carmen.')
         setTimeout(function () {
             gumShoe.budget -= cost;
             victory = gumShoe.city == carmen.city
-            console.log(victory)
             if (!victory) {
                 console.log(getClue())
             }
@@ -106,7 +104,6 @@ function GameService() {
         gumShoe.budget = 10000
         gumShoe.city = 'New York'
         hideCarmen()
-        console.log(callWhenDone)
         callWhenDone()
     }
 
