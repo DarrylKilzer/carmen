@@ -9,7 +9,7 @@ function GameController() {
             var city = cities[i]
             template +=
                 `
-                <button type="button" onclick="globals.app.controllers.gameController.flyToCity('${city}')">${city}</button>
+                <button type="button" onclick="app.controllers.gameController.flyToCity('${city}')">${city}</button>
                 `
         }
         document.getElementById('cities').innerHTML = template
@@ -24,7 +24,7 @@ function GameController() {
             document.getElementById('cities').innerHTML =
                 `
             <h1>Winner!</h1>
-            <button type="button" onclick="globals.app.controllers.gameController.reset()">Reset</button>
+            <button type="button" onclick="app.controllers.gameController.reset()">Reset</button>
             `
         }
     }
